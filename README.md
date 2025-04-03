@@ -15,7 +15,7 @@ A simple HTTP reverse proxy server built with Node.js, Express, and http-proxy-m
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/http-reverse-proxy.git
+git clone git@github.com:yourusername/http-reverse-proxy.git
 cd http-reverse-proxy
 ```
 
