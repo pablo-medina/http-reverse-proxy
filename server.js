@@ -15,34 +15,13 @@ const argv = yargs(hideBin(process.argv))
     description: 'Path to configuration file',
     default: 'default.config.json'
   })
-  .option('init', {
-    type: 'boolean',
-    description: 'Initialize configuration file',
-    default: false
-  })
   .help()
   .argv;
-
-// If --init is specified, create the configuration file
-if (argv.init) {
-  const configPath = path.resolve(argv.config);
-  if (fs.existsSync(configPath)) {
-    logger.warn(`Configuration file already exists at ${configPath}`);
-  } else {
-    const defaultConfig = {
-      port: 3000,
-      remoteServer: "http://remote-server:8080"
-    };
-    fs.writeFileSync(configPath, JSON.stringify(defaultConfig, null, 2));
-    logger.info(`Configuration file created at ${configPath}`);
-  }
-  process.exit(0);
-}
 
 // Check if configuration file exists
 const configPath = path.resolve(argv.config);
 if (!fs.existsSync(configPath)) {
-  logger.error(`Configuration file not found at ${configPath}. Run with --init to create it.`);
+  logger.error(`Configuration file not found at ${configPath}. Run 'node init-config.js' to create it.`);
   process.exit(1);
 }
 
