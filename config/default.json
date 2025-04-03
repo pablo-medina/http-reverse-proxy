@@ -1,0 +1,4 @@
+{
+  "port": 3000,
+  "remoteServer": "http://remote-server:8080"
+} 
